@@ -67,7 +67,7 @@ Here's a rough visual of the architecture:
 ---
 
 ## 🧪 Testing Vault Cluster Functionality
-Can access vault server using https. Since I used self signed SSL which is not browser friendly it will be saying connection not secure.<br>
+Can access vault server using https. Since this is just for testing and I used self signed SSL which is not browser friendly, it will be saying connection not secure.<br>
 
 ![VaultServerUp](images/Vault-Server-Up.png)<br>
 
@@ -79,16 +79,19 @@ Also in GUI<br>
 
 ![LeaderVaultPod](images/Leader-vault-pod.png)<br>
 
-I created some secrets in Vault Server and stop the Vault-Server1. Vault-Server1 is down and Leader Vault Server is re-elected. <br>
+Created some secrets in Vault Server and stopped the Vault-Server1. Vault-Server1 is down and Leader Vault Server is re-elected. <br>
 
 ![LeaderReElected](images/vault-leader-reelected.png)<br>
 
-Now I am accessing the same name on https but the Leader Vault Server is now Vault-Server3. Also, secrets are still there.<br>
+Now accessing the same name on https but the Leader Vault Server is now Vault-Server3. Also, secrets are still there.<br>
 
 ![SecretsStillHere](images/Secrets-still-here.png)<br>
 
+Raft Storage is used and you can check which Vault Server is Leader in GUI also.<br>
 
+![RaftStorage](images/Raft-storage.png)<br>
 
+---
 
 **⚙️ How It Works**
 - Vault Servers (3x) — Initialized with identical config and launched as containers.
