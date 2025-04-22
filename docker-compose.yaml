@@ -85,7 +85,6 @@ services:
       - "443:443"
     networks:
       - vault-cluster-network
-      - public
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./cert-script:/cert-script
@@ -98,6 +97,3 @@ services:
 networks:
   vault-cluster-network:
     driver: bridge
-  public:
-    driver: bridge
-    
